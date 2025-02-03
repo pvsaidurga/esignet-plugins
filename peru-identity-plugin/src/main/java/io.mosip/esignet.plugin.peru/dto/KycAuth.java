@@ -22,7 +22,4 @@ public class KycAuth {
     private String individualId;
 
     private DatosPersona datosPersona;
-
-
-
 }
