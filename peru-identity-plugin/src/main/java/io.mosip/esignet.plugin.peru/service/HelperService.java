@@ -76,7 +76,7 @@ public class HelperService {
         supportedKycAuthFormats.put("PIN", List.of("number"));
         supportedKycAuthFormats.put("BIO", List.of("encoded-json"));
         supportedKycAuthFormats.put("WLA", List.of("jwt"));
-        supportedKycAuthFormats.put("KBA", List.of("base64url-encoded-json"));
+        supportedKycAuthFormats.put("KBI", List.of("base64url-encoded-json"));
     }
 
     @PostConstruct
@@ -125,7 +125,7 @@ public class HelperService {
             kycAuthRequestDto.setIndividualId(kycAuthDto.getIndividualId());
             KycAuthResult kycAuthResult=null;
             for (AuthChallenge authChallenge : kycAuthDto.getChallengeList()) {
-                if (Objects.equals(authChallenge.getAuthFactorType(), "KBA")) {
+                if (Objects.equals(authChallenge.getAuthFactorType(), "KBI")) {
                     kycAuthResult= validateKnowledgeBasedAuth(kycAuthDto.getIndividualId(),authChallenge);
                 } else if (Objects.equals(authChallenge.getAuthFactorType(), "OTP")) {
                     kycAuthResult= validateOtpBasedAuth(kycAuthDto);
@@ -148,8 +148,7 @@ public class HelperService {
             throw new KycExchangeException("peru-ida-006");
         }
         try {
-            Map<String, Object> kyc =buildKycDataBasedOnPolicy(kycExchangeRequestDto.getKycToken(),
-                    kycExchangeRequestDto.getAcceptedClaims(),result.getDatosPersona());
+            Map<String, Object> kyc =buildKycDataBasedOnPolicy(kycExchangeRequestDto.getAcceptedClaims(),result.getDatosPersona());
             kyc.put("sub", result.getPartnerSpecificUserToken());
             result.setValidity(Valid.PROCESSED);
             cacheService.setKycAuth(kycExchangeRequestDto.getKycToken(),result);
@@ -223,7 +222,7 @@ public class HelperService {
 
     private boolean verifyKnowledgeBasedChallenge(String encodedChallenge,DatosPersona datosPersona) throws KycAuthException {
         if(CollectionUtils.isEmpty(fieldDetailList)){
-            log.error("KBA field details not configured");
+            log.error("KBI field details not configured");
             throw new KycAuthException(ErrorConstants.AUTH_FAILED);
         }
         try{
@@ -284,13 +283,8 @@ public class HelperService {
         }
     }
 
-    private Map<String, Object> buildKycDataBasedOnPolicy(String kycToken, List<String> claims,DatosPersona datosPersona) throws KycExchangeException {
+    private Map<String, Object> buildKycDataBasedOnPolicy(List<String> claims,DatosPersona datosPersona) throws KycExchangeException {
         Map<String, Object> kyc = new HashMap<>();
-//        KycAuth kycAuth = cacheService.getKycAuth(kycToken);
-//        if (kycAuth == null) {
-//            throw new KycExchangeException("peru-ida-001");
-//        }
-      //  DatosPersona persondata=kycAuth.getDatosPersona();
         for (String claim : claims) {
             switch (claim) {
                 case "name":

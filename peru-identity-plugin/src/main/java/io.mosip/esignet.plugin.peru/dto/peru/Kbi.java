@@ -3,7 +3,7 @@ package  io.mosip.esignet.plugin.peru.dto.peru;
 import lombok.Data;
 
 @Data
-public class Kba {
+public class Kbi {
 
     private String dni;
     private String firstName;

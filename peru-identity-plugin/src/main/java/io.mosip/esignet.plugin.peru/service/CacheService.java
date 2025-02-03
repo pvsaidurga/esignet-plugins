@@ -20,9 +20,7 @@ public class CacheService {
         cacheManager.getCache(KYC_AUTH_CACHE).put(kycToken,kycAuth);
     }
 
-    public
-
-    KycAuth getKycAuth(String kycToken) {
+    public KycAuth getKycAuth(String kycToken) {
         return cacheManager.getCache(KYC_AUTH_CACHE).get(kycToken, KycAuth.class);	//NOSONAR getCache() will not be returning null here.
     }
 }

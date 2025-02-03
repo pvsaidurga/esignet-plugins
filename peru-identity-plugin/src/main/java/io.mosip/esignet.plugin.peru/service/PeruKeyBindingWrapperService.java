@@ -84,7 +84,7 @@ public class PeruKeyBindingWrapperService implements KeyBinder {
         supportedKeyBindingFormats.put("OTP", List.of("alpha-numeric"));
         supportedKeyBindingFormats.put("PIN", List.of("number"));
         supportedKeyBindingFormats.put("BIO", List.of("encoded-json"));
-        supportedKeyBindingFormats.put("KBA", List.of("base64url-encoded-json"));
+        supportedKeyBindingFormats.put("KBI", List.of("base64url-encoded-json"));
 
     }
 
