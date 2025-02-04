@@ -4,11 +4,11 @@
 	<modelVersion>4.0.0</modelVersion>
 
 	<groupId>io.mosip.esignet</groupId>
-	<artifactId>peru-esignet-integration-impl</artifactId>
-	<version>0.9.3</version>
+	<artifactId>peru-esignet-plugin</artifactId>
+	<version>0.0.1</version>
 	<packaging>jar</packaging>
 	
-	<name>peru-identity-plugin</name>
+	<name>peru-esignet-plugin</name>
 	<description>peru a wrapper implementation that is used to showcase the integration with e-Signet</description>
 	<url>https://github.com/mosip/esignet-mock-services</url>
 	
@@ -45,8 +45,7 @@
 		<spring.boot.version>2.3.6.RELEASE</spring.boot.version>
 
 		<kernel-keymanager-service.version>1.2.1.0</kernel-keymanager-service.version>
-		<esignet.version>1.5.1-SNAPSHOT</esignet.version>
-		<esignet-signup.version>1.1.1-SNAPSHOT</esignet-signup.version>
+		<esignet.version>1.4.1</esignet.version>
 
 		<sonar.exclusions>**/dto/**,**/entity/**,**/exception/**,**/spi/**,**/advice/**,**/config/**</sonar.exclusions>
 		<sonar.cpd.exclusions>**/dto/**,**/entity/**,**/config/**</sonar.cpd.exclusions>
@@ -70,14 +69,14 @@
 		<dependency>
 			<groupId>io.mosip.esignet</groupId>
 			<artifactId>esignet-core</artifactId>
-			<version>1.4.1</version>
+			<version>${esignet.version}</version>
 			<scope>provided</scope>
 		</dependency>
 
 		<dependency>
 			<groupId>io.mosip.esignet</groupId>
 			<artifactId>esignet-integration-api</artifactId>
-			<version>1.4.1</version>
+			<version>${esignet.version}</version>
 			<scope>provided</scope>
 		</dependency>
 		<dependency>
