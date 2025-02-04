@@ -4,13 +4,13 @@
 	<modelVersion>4.0.0</modelVersion>
 
 	<groupId>io.mosip.esignet</groupId>
-	<artifactId>peru-esignet-plugin</artifactId>
+	<artifactId>peru-identity-plugin</artifactId>
 	<version>0.0.1</version>
 	<packaging>jar</packaging>
 	
 	<name>peru-esignet-plugin</name>
 	<description>peru a wrapper implementation that is used to showcase the integration with e-Signet</description>
-	<url>https://github.com/mosip/esignet-mock-services</url>
+	<url>https://github.com/peru-id/esignet-mock-services</url>
 	
 	<licenses>
 		<license>
@@ -19,9 +19,9 @@
 		</license>
 	</licenses>
 	<scm>
-		<connection>scm:git:git://github.com/mosip/esignet-mock-services.git</connection>
-		<developerConnection>scm:git:ssh://github.com:mosip/esignet-mock-services.git</developerConnection>
-		<url>https://github.com/mosip/esignet-mock-services</url>
+		<connection>scm:git:git://github.com/peru-id/esignet-mock-services.git</connection>
+		<developerConnection>scm:git:ssh://github.com:peru-id/esignet-mock-services.git</developerConnection>
+		<url>https://github.com/peru-id/esignet-mock-services</url>
 		<tag>HEAD</tag>
 	</scm>
 
