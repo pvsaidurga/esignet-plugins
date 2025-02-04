@@ -21,7 +21,4 @@ public class CacheService {
         return cacheManager.getCache(KYC_AUTH_CACHE).get(kycToken, KycAuth.class);	//NOSONAR getCache() will not be returning null here.
     }
 
-    public void removeKycAuth(String kycToken) {
-        cacheManager.getCache(KYC_AUTH_CACHE).evict(kycToken);
-    }
 }

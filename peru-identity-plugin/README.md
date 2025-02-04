@@ -15,11 +15,15 @@ mosip.esignet.integration.vci-plugin=NoOpVCIssuancePlugin
 
 #---------------------------------------------------------------------------------Peru_KBI_Configuration----------------------------------------------------------------
 
-mosip.esignet.authenticator.peru-rc.auth-factor.kba.individual-id-field=dni
-mosip.esignet.authenticator.peru-rc.auth-factor.kba.field-details={{"id":"dni", "type":"text", "format":"", "maxLength": 10, "regex": "^[^\s]*$"},{"id":"prenombres", "type":"text", "format":"", "maxLength": 50, "regex": "^[^\s]*$"}\
+mosip.esignet.peru.authenticator.auth-factor.kba.individual-id-field=dni
+mosip.esignet.peru.authenticator.auth-factor.kba.field-details={{"id":"dni", "type":"text", "format":"", "maxLength": 10, "regex": "^[^\s]*$"},{"id":"prenombres", "type":"text", "format":"", "maxLength": 50, "regex": "^[^\s]*$"}\
   ,{"id":"primerApellido", "type":"text", "format":"", "maxLength": 50, "regex": "^[^\s]*$"},{"id":"segundoApellido", "type":"text", "format":"", "maxLength": 50, "regex": "^[^\s]*$"},{"id":"fechaNacimiento", "type":"date", "format":"dd/mm/yyyy"}}
 mosip.esignet.authenticator.default.auth-factor.kba.field-details=${mosip.esignet.authenticator.peru-rc.auth-factor.kba.field-details}
 mosip.esignet.authenticator.default.auth-factor.kba.individual-id-field=${mosip.esignet.authenticator.peru-rc.auth-factor.kba.field-details}
+
+mosip.esignet.peru.authenticator.ida.otp-channels=email,phone
+mosip.esignet.peru.authenticator.ida.otp-value=111111
+mosip.esignet.peru.supported.bind-auth-factor-types={'WLA'}
 
 mosip.esignet.auth-challenge.KBA.format=base64url-encoded-json
 mosip.esignet.auth-challenge.KBA.min-length=50
@@ -35,7 +39,6 @@ mosip.esignet.cache.expire-in-seconds={'clientdetails' : 86400, 'preauth': 180, 
   'linked': 60 , 'linkedcode': ${mosip.esignet.link-code-expire-in-secs}, 'linkedauth' : ${mosip.esignet.authentication-expire-in-secs}, \
   'consented': 120, 'vcissuance': ${mosip.esignet.access-token-expire-seconds}, 'apiRateLimit' : 180, 'blocked': 300, 'kycauth':1800}
 
-mosip.esignet.openid.peru.scope.mapping={'name':'prenombres','gender':'genero','given_name':'primerapellido', 'birthdate':'fechanacimiento'}
 
 mosip.esignet.cache.names=clientdetails,preauth,authenticated,authcodegenerated,userinfo,linkcodegenerated,linked,linkedcode,\
   linkedauth,consented,vcissuance,apiRateLimit,blocked,kycauth

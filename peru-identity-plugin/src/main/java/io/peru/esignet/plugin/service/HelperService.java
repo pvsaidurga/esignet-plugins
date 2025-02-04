@@ -50,10 +50,10 @@ public class HelperService {
     @Value("${mosip.esignet.peru.authenticator.ida.otp-value:111111}")
     private String otpValue;
 
-    @Value("#{${mosip.esignet.authenticator.peru-rc.auth-factor.kba.field-details}}")
+    @Value("#{${mosip.esignet.peru.authenticator.auth-factor.kba.field-details}}")
     private List<Map<String,String>> fieldDetailList;
 
-    @Value("${mosip.esignet.authenticator.peru-rc.auth-factor.kba.individual-id-field}")
+    @Value("${mosip.esignet.peru.authenticator.auth-factor.kba.individual-id-field}")
     private String idField;
 
     @Autowired
@@ -64,14 +64,6 @@ public class HelperService {
 
     @Autowired
     private CacheService cacheService;
-
-    private static final Map<String, List<String>> supportedKycAuthFormats = new HashMap<>();
-
-    static {
-        supportedKycAuthFormats.put("OTP", List.of("alpha-numeric"));
-        supportedKycAuthFormats.put("WLA", List.of("jwt"));
-        supportedKycAuthFormats.put("KBA", List.of("base64url-encoded-json"));
-    }
 
     @PostConstruct
     public void initialize() throws KycAuthException {
@@ -121,9 +113,6 @@ public class HelperService {
                     default:
                         throw new KycAuthException("invalid_auth_challenge");
                 }
-                if (!isKycAuthFormatSupported(authChallenge.getAuthFactorType(), authChallenge.getFormat())) {
-                    throw new KycAuthException("invalid_challenge_format");
-                }
             }
             return  kycAuthResult;
     }
@@ -137,7 +126,6 @@ public class HelperService {
         try {
             Map<String, Object> kyc =buildKycDataBasedOnPolicy(kycExchangeRequestDto.getAcceptedClaims(),result.getDatosPersona());
             kyc.put("sub", result.getPartnerSpecificUserToken());
-            cacheService.removeKycAuth(kycExchangeRequestDto.getKycToken());
 
             String finalKyc= signKyc(kyc);
             KycExchangeResult kycExchangeResult = new KycExchangeResult();
@@ -266,11 +254,6 @@ public class HelperService {
         field.setAccessible(true);
         Object fieldValue = field.get(datosPersona);
         return (String) fieldValue;
-    }
-
-    private boolean isKycAuthFormatSupported(String authFactorType, String kycAuthFormat) {
-        var supportedFormat = supportedKycAuthFormats.get(authFactorType);
-        return supportedFormat != null && supportedFormat.contains(kycAuthFormat);
     }
 
     private String generateB64EncodedHash(String algorithm, String value) throws KycAuthException {
