@@ -8,10 +8,10 @@ This library should be added as a runtime dependency to [esignet-service](https:
 ## Configurations required to added in esignet-default.properties
 
 ````
-mosip.esignet.integration.scan-base-package=io.mosip.esignet.mock.integration
+mosip.esignet.integration.scan-base-package=io.peru.esignet.plugin
 mosip.esignet.integration.authenticator=PeruAuthenticationService
 mosip.esignet.integration.key-binder=PeruKeyBindingWrapperService
-mosip.esignet.integration.vci-plugin=MockVCIssuancePlugin
+mosip.esignet.integration.vci-plugin=NoOpVCIssuancePlugin
 
 #---------------------------------------------------------------------------------Peru_KBI_Configuration----------------------------------------------------------------
 
@@ -21,9 +21,9 @@ mosip.esignet.authenticator.peru-rc.auth-factor.kba.field-details={{"id":"dni", 
 mosip.esignet.authenticator.default.auth-factor.kba.field-details=${mosip.esignet.authenticator.peru-rc.auth-factor.kba.field-details}
 mosip.esignet.authenticator.default.auth-factor.kba.individual-id-field=${mosip.esignet.authenticator.peru-rc.auth-factor.kba.field-details}
 
-mosip.esignet.auth-challenge.KBI.format=base64url-encoded-json
-mosip.esignet.auth-challenge.KBI.min-length=50
-mosip.esignet.auth-challenge.KBI.max-length=200
+mosip.esignet.auth-challenge.KBA.format=base64url-encoded-json
+mosip.esignet.auth-challenge.KBA.min-length=50
+mosip.esignet.auth-challenge.KBA.max-length=200
 
 
 mosip.esignet.cache.size={'clientdetails' : 200, 'preauth': 200, 'authenticated': 200, 'authcodegenerated': 200, 'userinfo': 200, \
@@ -40,22 +40,7 @@ mosip.esignet.openid.peru.scope.mapping={'name':'prenombres','gender':'genero','
 mosip.esignet.cache.names=clientdetails,preauth,authenticated,authcodegenerated,userinfo,linkcodegenerated,linked,linkedcode,\
   linkedauth,consented,vcissuance,apiRateLimit,blocked,kycauth
 
-mosip.esignet.amr-acr-mapping-file-url=https://raw.githubusercontent.com/mosip/mosip-config/refs/heads/camdgc-qa/amr-acr-mapping.json
 
-##-----------------------------VCI related demo configuration---------------------------------------------##
-
-mosip.esignet.vciplugin.sunbird-rc.issue-credential-url=http://164.52.205.87/credentials/issue 
-mosip.esignet.vciplugin.sunbird-rc.supported-credential-types=InsuranceCredential,HealthCardCredential
-mosip.esignet.vciplugin.sunbird-rc.credential-type.InsuranceCredential.static-value-map.issuerId=did:web:esignet-mock.dev.mosip.net
-mosip.esignet.vciplugin.sunbird-rc.credential-type.InsuranceCredential.template-url=requestTemplete.json
-mosip.esignet.vciplugin.sunbird-rc.credential-type.InsuranceCredential.registry-get-url=http://10.3.148.107/api/v1/Insurance/
-mosip.esignet.vciplugin.sunbird-rc.credential-type.InsuranceCredential.cred-schema-id=did:schema:1e4d93df-4047-4dd7-8515-9ad46796009f
-mosip.esignet.vciplugin.sunbird-rc.credential-type.InsuranceCredential.cred-schema-version=1.0.0
-mosip.esignet.vciplugin.sunbird-rc.credential-type.HealthCardCredential.static-value-map.issuerId=did:web:esignet-mock.dev.mosip.net
-mosip.esignet.vciplugin.sunbird-rc.credential-type.HealthCardCredential.template-url=requestTemplete.json
-mosip.esignet.vciplugin.sunbird-rc.credential-type.HealthCardCredential.registry-get-url=http://10.3.148.107/api/v1/Insurance/
-mosip.esignet.vciplugin.sunbird-rc.credential-type.HealthCardCredential.cred-schema-id=did:schema:1e4d93df-4047-4dd7-8515-9ad46796009f
-mosip.esignet.vciplugin.sunbird-rc.credential-type.HealthCardCredential.cred-schema-version=1.0.0
 ````
 
 
