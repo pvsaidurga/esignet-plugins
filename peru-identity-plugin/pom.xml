@@ -8,9 +8,9 @@
 	<version>0.0.1</version>
 	<packaging>jar</packaging>
 	
-	<name>peru-esignet-plugin</name>
-	<description>peru a wrapper implementation that is used to showcase the integration with e-Signet</description>
-	<url>https://github.com/peru-id/esignet-mock-services</url>
+	<name>peru-identity-plugin</name>
+	<description>Peru identity plugin to integrate with eSignet</description>
+	<url>https://github.com/peru-id/esignet-plugins</url>
 	
 	<licenses>
 		<license>
@@ -19,11 +19,20 @@
 		</license>
 	</licenses>
 	<scm>
-		<connection>scm:git:git://github.com/peru-id/esignet-mock-services.git</connection>
-		<developerConnection>scm:git:ssh://github.com:peru-id/esignet-mock-services.git</developerConnection>
-		<url>https://github.com/peru-id/esignet-mock-services</url>
+		<connection>scm:git:git://github.com/peru-id/esignet-plugins.git</connection>
+		<developerConnection>scm:git:ssh://github.com:peru-id/esignet-plugins.git</developerConnection>
+		<url>https://github.com/peru-id/esignet-plugins</url>
 		<tag>HEAD</tag>
 	</scm>
+
+	<developers>
+		<developer>
+			<name>Mosip</name>
+			<email>mosip.emailnotifier@gmail.com</email>
+			<organization>io.mosip</organization>
+			<organizationUrl>https://github.com/peru-id/esignet-plugins</organizationUrl>
+		</developer>
+	</developers>
 
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
