@@ -4,6 +4,8 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlProperty;
 import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlRootElement;
 
+import java.io.Serializable;
+
 
 /**
  * <p>Java class for datosPersona complex type.
@@ -34,7 +36,7 @@ import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlRootElement;
  */
 @JacksonXmlRootElement(localName = "datosPersona")
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class DatosPersona {
+public class DatosPersona implements Serializable {
 
     @JacksonXmlProperty
     protected String dni;

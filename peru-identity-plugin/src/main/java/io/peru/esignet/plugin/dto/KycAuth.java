@@ -4,12 +4,13 @@ package io.peru.esignet.plugin.dto;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 
+import java.io.Serializable;
 import java.time.LocalDateTime;
 
 
 @Data
 @AllArgsConstructor
-public class KycAuth {
+public class KycAuth implements Serializable {
 
     private String kycToken;
     private String partnerSpecificUserToken;
